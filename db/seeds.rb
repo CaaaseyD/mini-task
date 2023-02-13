@@ -16,6 +16,10 @@ User.create({username: "admin", email: "admin@caseydai.me", password: "password"
 10.times do
   User.create({username: Faker::Internet.username, email: Faker::Internet.safe_email, password: "password"})
 end
+puts "Users created"
 
 #create 3-5 tasks for each user
-Goal.create({title: Faker::Hobby.activity, description:Faker::Marketing.buzzwords, deadline: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30), public: [true, false].sample, complete: [true, false].sample})
+50.times do
+  Goal.create({title: Faker::Hobby.activity, description:Faker::Marketing.buzzwords, deadline: Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 30), public: [true, false].sample, complete: [true, false].sample, user_id: User.ids.sample})
+end
+puts "Goals created"
