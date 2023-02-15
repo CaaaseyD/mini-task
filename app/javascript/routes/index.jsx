@@ -7,6 +7,7 @@ export default (
   <Router>
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/goals" element={<Goals />} />
     </Routes>
   </Router>
 );
