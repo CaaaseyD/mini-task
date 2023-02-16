@@ -1,13 +1,10 @@
 import React from 'react';
-import { ReactDOM } from 'react-dom';
-import { render } from 'react-dom';
+import Goals from './Goals'
 
 const Home = () => {
   return(
     <div>
-      <Navbar>navbar</Navbar>
-      <Landing>landing</Landing>
-      <Footer>footer</Footer>
+      <Goals></Goals>
     </div>
   )
 };

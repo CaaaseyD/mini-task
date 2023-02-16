@@ -1,10 +1,12 @@
-class GoalsController< ApplicationController
+class Api::V1::GoalsController< ApplicationController
   before_action :set_goal, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  protect_from_forgery with: :null_session
 
   # GET /goals or /goals.json
   def index
     @goals = Goal.where(public: true)
-    render json: @goals, status: :ok
+    render json: @goals.to_json(include: :user), status: :ok
   end
 
   # GET /goals/1 or /goals/1.json
